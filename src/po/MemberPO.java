@@ -1,0 +1,160 @@
+package SIMSclient.src.po;
+
+import SIMSclient.src.dataenum.MemberCategory;
+import SIMSclient.src.dataenum.MemberLevel;
+import SIMSclient.src.dataenum.UserRole;
+
+public class MemberPO extends PersistObject {
+
+	private static final long serialVersionUID = 1L;
+	private MemberCategory category;
+	private MemberLevel level;
+	private String name;
+	private String phone;
+	private String address;
+	private String post;
+	private String email;
+	private double receivableLimit; // 应收额度
+	private double receivable; // 应收
+	private double payable; // 应付
+	private String saleMan; // 默认业务员
+
+	
+	public MemberPO(String id, MemberCategory category, MemberLevel level, String name, String phone, String adress,
+			String post, String email, double rereceivableLimit, String saleMan) {
+		super(id);
+		this.category = category;
+		this.level = level;
+		this.name = name;
+		this.phone = phone;
+		this.address = adress;
+		this.post = post;
+		this.email = email;
+		this.receivableLimit = rereceivableLimit;
+		this.saleMan = saleMan;
+	}
+
+	public MemberCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(MemberCategory category) {
+		this.category = category;
+	}
+
+	public MemberLevel getLevel() {
+		return level;
+	}
+
+	public void setLevel(MemberLevel level) {
+		this.level = level;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String adress) {
+		this.address = adress;
+	}
+
+	public String getPost() {
+		return post;
+	}
+
+	public void setPost(String post) {
+		this.post = post;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public double getRereceivableLimit() {
+		return receivableLimit;
+	}
+
+	/**
+	 * 
+	 * @Title: setRereceivableLimit @Description: 应收额度仅最高权限可修改 ,仅有总经理可以修改 @param
+	 *         rereceivableLimit, role @return 是否修改成功 @throws
+	 */
+	public boolean setRereceivableLimit(double rereceivableLimit, UserRole role) {
+		if (role.equals(UserRole.GENERAL_MANAGER)) {
+			this.receivableLimit = rereceivableLimit;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public double getReceivable() {
+		return receivable;
+	}
+
+	public void setReceivable(double receivable) {
+		this.receivable = receivable;
+	}
+
+	public double getPayable() {
+		return payable;
+	}
+
+	public void setPayable(double payable) {
+		this.payable = payable;
+	}
+
+	public String getSaleMan() {
+		return saleMan;
+	}
+
+	public void setSaleMan(String saleMan) {
+		this.saleMan = saleMan;
+	}
+
+	/**
+	 * 客户是否重复
+	 */
+	@Override
+	public boolean equals(Object object) {
+		if (this == object)
+			return true;
+		if (!super.equals(object))
+			return false;
+		if (getClass() != object.getClass())
+			return false;
+		MemberPO other = (MemberPO) object;
+		if (this.name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!this.name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return id + "|" + category.value + "|" + level.value + "|" + name + "|" + phone + "|" + address + "|" + post
+				+ "|" + email + "|" + receivableLimit + receivable + "|" + payable + "|" + "|" + saleMan;
+	}
+}

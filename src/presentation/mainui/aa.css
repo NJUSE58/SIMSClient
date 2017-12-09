@@ -1,0 +1,8 @@
+.aa:HOVER{
+-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+border-color:rgba(141,39,142,.75);
+-webkit-box-shadow:0 0 18px rgba(111,1,32,3);
+}
+.aa{
+height: 100px;width: 100px;
+}
