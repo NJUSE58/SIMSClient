@@ -1,9 +1,9 @@
-package SIMSclient.src.bussinesslogic.salesbl;
+package bussinesslogic.salesbl;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.Warehouse;
-import SIMSclient.src.po.commodity.CommodityItemPO;
+import dataenum.Warehouse;
+import po.commodity.CommodityItemPO;
 
 /*
  * 销售单，包括：
@@ -21,14 +21,13 @@ import SIMSclient.src.po.commodity.CommodityItemPO;
  */
 public class SalesList {
 
-	private String ID;
-	private String Name;
+	private String memberID;
 	private Warehouse warehouse;
 	private ArrayList<SalesLineItem> commodityList; // 商品列表清单
 	private double beforePrice;
 	private double allowance;
 	private double voucher;
-	private double afterPrice;
+	private double afterPrice;	
 	private String remark;
 
 	public SalesList() {
@@ -41,32 +40,23 @@ public class SalesList {
 		commodityList.add(item);
 	}
 	
-	/*进行PO的转换*/
+	/*转换成PO*/
 	public ArrayList<CommodityItemPO> getCommodities() {
-		ArrayList<CommodityItemPO> commoditiesPO = new ArrayList<CommodityItemPO>();
-		for(SalesLineItem commodity : commodityList) {
-			CommodityItemPO po = new CommodityItemPO(commodity.getId(), commodity.getName(),
-					commodity.getNumber(), commodity.getPrice(), commodity.getRemark());
-			commoditiesPO.add(po);
+		ArrayList<CommodityItemPO> list = new ArrayList<CommodityItemPO>();
+		for(SalesLineItem s : commodityList) {
+			CommodityItemPO po = new CommodityItemPO(s.getId(), s.getName(), s.getModel(), s.getNumber(), s.getPrice(), s.getRemark());
+			list.add(po);
 		}
-		return commoditiesPO;
+		return list;
 	}
 	
 	
-	public String getID() {
-		return ID;
+	public String getMemberID() {
+		return memberID;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
-	}
-
-	public String getName() {
-		return Name;
-	}
-
-	public void setName(String name) {
-		Name = name;
+	public void setMemberID(String id) {
+		this.memberID = id;
 	}
 
 	public Warehouse getWareHouse() {
@@ -111,7 +101,7 @@ public class SalesList {
 		if (this.afterPrice < 0) {
 			return 0;
 		}
-		return afterPrice;
+		else return afterPrice;
 	}
 
 

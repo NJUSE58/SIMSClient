@@ -1,8 +1,8 @@
-package SIMSclient.src.bussinesslogicservice.promotionblservice;
+package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.vo.PromotionVO;
+import vo.PromotionVO;
 
 public interface PromotionBLService {
 //dffff

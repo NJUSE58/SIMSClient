@@ -1,11 +1,12 @@
-package SIMSclient.src.bussinesslogicservice.accountblservice;
+package bussinesslogicservice.accountblservice;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.dataenum.findtype.FindAccountType;
-import SIMSclient.src.vo.AccountVO;
-import SIMSclient.src.vo.makefinancialdoc.FinancialDocVO;
+import dataenum.BillType;
+import dataenum.ResultMessage;
+import dataenum.findtype.FindAccountType;
+import vo.AccountVO;
+import vo.FinancialBill.FinancialDocVO;
 
 
 /**
@@ -42,7 +43,7 @@ public interface AccountBLService {
 
 	public ArrayList<AccountVO> getAccountList();  //改了一下接口，返回一个账户list
 	
-	public ResultMessage enterItem(FinancialDocVO financialDocVO); //收款单、付款单 入账
+	public ResultMessage enterItem(FinancialDocVO financialDocVO,BillType billType); //收款单、付款单 入账
 
 
 }

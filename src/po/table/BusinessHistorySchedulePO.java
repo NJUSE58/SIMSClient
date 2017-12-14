@@ -1,13 +1,14 @@
-package SIMSclient.src.po.table;
+package po.table;
 
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.po.PersistObject;
-import SIMSserver.src.dataenum.Warehouse;
+import dataenum.BillType;
+import dataenum.Warehouse;
+import po.PersistObject;
 
 /**
  * 经营历程表
  * 继承PersistObjct
  * 将原本的属性用private修饰，增加serialVersionUID,去掉date, 因为date在父类PersistObject自动生成
+ * 修改者：lijie
  */
 public class BusinessHistorySchedulePO extends PersistObject{
 	private static final long serialVersionUID = 1L;
@@ -73,5 +74,5 @@ public class BusinessHistorySchedulePO extends PersistObject{
 	
 	
 	
-	
+		
 }

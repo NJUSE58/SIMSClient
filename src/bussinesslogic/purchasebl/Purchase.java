@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogic.purchasebl;
+package bussinesslogic.purchasebl;
 /**     
 *  
 * @author Lijie 
@@ -9,9 +9,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.dataservice.purchasedataservice.PurchaseDataService;
-import SIMSclient.src.po.PurchasePO;
+import dataenum.BillType;
+import dataservice.purchasedataservice.PurchaseDataService;
+import po.PurchasePO;
 
 public class Purchase {
 

@@ -16,32 +16,18 @@ public class SalesVO extends ViewObject {
 	public String operator;
 	public Warehouse warehouse;
 	public ArrayList<CommodityItemVO> commodity;
-	public double beforePrice; // 折让前价格
-	public double allowance; // 折让金额
-	public double voucher; // 代金券金额
-	public double afterPrice;
+	public Double beforePrice; // 折让前价格
+	public Double allowance; // 折让金额
+	public Double voucher; // 代金券金额
+	public Double afterPrice;
 	public String remark;
 	public BillState state;
 	public BillType type;
 
-	/**
-	 * @param retailerID
-	 * @param retailer
-	 * @param saleMan
-	 * @param operator
-	 * @param warehouse
-	 * @param commodity
-	 * @param beforePrice
-	 * @param allowance
-	 * @param voucher
-	 * @param afterPrice
-	 * @param remark
-	 * @param state
-	 * @param type
-	 */
+	
 	public SalesVO(String id, String retailerID, String retailer, String saleMan, String operator, Warehouse warehouse,
-			ArrayList<CommodityItemVO> commodity, double beforePrice, double allowance, double voucher,
-			double afterPrice, String remark, BillState state, BillType type) {
+			ArrayList<CommodityItemVO> commodity, Double beforePrice, Double allowance, Double voucher,
+			Double afterPrice, String remark, BillState state, BillType type) {
 		super();
 		this.id = id;
 		this.retailerID = retailerID;
@@ -57,13 +43,6 @@ public class SalesVO extends ViewObject {
 		this.remark = remark;
 		this.state = state;
 		this.type = type;
-	}
-
-	@Override
-	public String toString() {
-		return "[单据ID=" + id + "单据类型=" + type.value + ", 客户ID=" + retailerID + ", 客户姓名=" + retailer +", 业务员=" + saleMan
-				+ ", 操作员=" + operator + ", 商品列表=" + commodity + ",\r\n折让前总额 =" + beforePrice + ", 折让金额=" + allowance
-				+ ", 代金券总额=" + voucher + ", 折让后总额=" + afterPrice + ", 备注=" + remark + ", 单据状态=" + state.value + "]";
 	}
 
 }

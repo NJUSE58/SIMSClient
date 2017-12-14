@@ -1,22 +1,23 @@
 package vo.member;
 
 import dataenum.MemberCategory;
-
 import dataenum.MemberLevel;
 
 public class MemberVO {
-	public String ID;
-	public MemberCategory category; // 客户分类：进货商和销售商
-	public MemberLevel level; // 客户级别：五级，一级普通用户，五级VIP客户
-	public String name; // 客户名字
-	public String cellNumber; // 电话号码
-	public String address;
-	public String post; // 邮编
-	public String email;
-	public double receivableLimit; // 应收额度
-	public double receivable; // 应收
-	public double payable; // 应付
-	public String saleMan; // 默认业务员
+	private String ID;
+	private String categoryString;
+	private MemberCategory category; // 客户分类：进货商和销售商
+	private String levelString;
+	private MemberLevel level; // 客户级别：五级，一级普通用户，五级VIP客户
+	private String name; // 客户名字
+	private String cellNumber; // 电话号码
+	private String address;
+	private String post; // 邮编
+	private String email;
+	private String receivableLimit; // 应收额度
+	private String receivable; // 应收
+	private String payable; // 应付
+	private String saleMan; // 默认业务员
 
 	/**
 	 * @param category
@@ -32,9 +33,8 @@ public class MemberVO {
 	 * @param saleMan
 	 */
 	public MemberVO(String ID, MemberCategory category, MemberLevel level, String name, String cellNumber,
-			String address, String post, String email, double receivableLimit, double receivable, double payable,
+			String address, String post, String email, String receivableLimit, String receivable, String payable,
 			String saleMan) {
-		super();
 		this.ID = ID;
 		this.category = category;
 		this.level = level;
@@ -47,6 +47,73 @@ public class MemberVO {
 		this.receivable = receivable;
 		this.payable = payable;
 		this.saleMan = saleMan;
+		categoryString = category.value;
+		levelString = level.value;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
+
+	public MemberCategory getCategory() {
+		return category;
+	}
+
+
+	public MemberLevel getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = MemberLevel.getLevel(level);
+		this.levelString = level;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+
+	public String getCellNumber() {
+		return cellNumber;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getPost() {
+		return post;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getReceivableLimit() {
+		return receivableLimit;
+	}
+
+	public String getReceivable() {
+		return receivable;
+	}
+
+	public String getPayable() {
+		return payable;
+	}
+
+	public String getSaleMan() {
+		return saleMan;
+	}
+
+	public String categoryString(){
+		return categoryString;
+	}
+
+	public String getLevelString(){
+		return levelString;
 	}
 
 }

@@ -1,15 +1,17 @@
-package SIMSclient.src.bussinesslogic.salesbl;
+package bussinesslogic.salesbl;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import SIMSclient.src.dataenum.BillState;
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.dataenum.Warehouse;
-import SIMSclient.src.po.commodity.CommodityItemPO;
-import SIMSclient.src.po.sales.SalesPO;
-import SIMSclient.src.vo.commodity.CommodityItemVO;
-import SIMSclient.src.vo.sale.SalesVO;
+import bussinesslogic.common.CommodityItemTran;
+import dataenum.BillState;
+import dataenum.BillType;
+import dataenum.Warehouse;
+import po.commodity.CommodityItemPO;
+import po.sales.SalesPO;
+import vo.commodity.CommodityItemVO;
+import vo.sale.SalesVO;
+
 
 /**
  * 用于PO与VO的相互转换
@@ -17,13 +19,13 @@ import SIMSclient.src.vo.sale.SalesVO;
 public class SalesTransition {
 
 	public static SalesPO VOtoPO(SalesVO vo) {
-		String id = vo.id;
+		String id = vo.getId();
 		String retailerId = vo.retailerID;
 		String retailer = vo.retailer; // 销售商客户
 		String saleMan = vo.saleMan; // 业务员
 		String operator = vo.operator; // 操作员
 		Warehouse warehouse = vo.warehouse;
-		ArrayList<CommodityItemPO> commodity = null;
+		ArrayList<CommodityItemPO> commodity = CommodityItemTran.VOtoPO(vo.commodity);
 		double beforePrice = vo.beforePrice;
 		double allowance = vo.allowance; // 折让
 		double voucher = vo.voucher; // 使用代金券金额
@@ -35,13 +37,13 @@ public class SalesTransition {
 	}
 
 	public static SalesVO POtoVO(SalesPO po) {
-		String id = po.getID();
+		String id = po.getId();
 		String retailerId = po.getClientId();
 		String retailer = po.getClientName();
 		String salesMan = po.getSaleMan();
 		String operator = po.getOperator();
 		Warehouse warehouse = po.getWarehouse();
-		ArrayList<CommodityItemVO> commodity = null;
+		ArrayList<CommodityItemVO> commodity = CommodityItemTran.POtoVO(po.getCommodities());
 		double beforePrice = po.getBeforePrice();
 		double allowance = po.getAllowance(); // 折让
 		double voucher = po.getVoucher(); // 使用代金券金额

@@ -1,12 +1,24 @@
 package vo;
 
-public class AccountBookVO {
-	String date;
-	String clerkID;
+import java.util.ArrayList;
 
-	public AccountBookVO(String d, String c) {
-		date = d;
-		clerkID = c;
+import vo.commodity.CommodityVO;
+import vo.member.MemberVO;
+
+public class AccountBookVO {
+	private String date;
+	private String clerkID;//操作员ID
+	private ArrayList<CommodityVO> commodityVOs;//商品列表
+	private ArrayList<MemberVO> memberVOs;//客户列表
+	private ArrayList<AccountVO> accountVOs;//账户列表
+
+	public AccountBookVO(String data, String clerkID,ArrayList<CommodityVO> commodityVOs,ArrayList<MemberVO> memberVOs
+			,ArrayList<AccountVO> accountVOs) {
+		this.date=data;
+		this.clerkID=clerkID;
+		this.commodityVOs=commodityVOs;
+		this.memberVOs=memberVOs;
+		this.accountVOs=accountVOs;
 	}
 
 	public String getDate() {
@@ -24,4 +36,29 @@ public class AccountBookVO {
 	public void setClerkID(String clerkID) {
 		this.clerkID = clerkID;
 	}
+
+	public ArrayList<CommodityVO> getCommodityVOs() {
+		return commodityVOs;
+	}
+
+	public void setCommodityVOs(ArrayList<CommodityVO> commodityVOs) {
+		this.commodityVOs = commodityVOs;
+	}
+
+	public ArrayList<MemberVO> getMemeberVOs() {
+		return memberVOs;
+	}
+
+	public void setMemeberVOs(ArrayList<MemberVO> memberVOs) {
+		this.memberVOs = memberVOs;
+	}
+
+	public ArrayList<AccountVO> getAccountVOs() {
+		return accountVOs;
+	}
+
+	public void setAccountVOs(ArrayList<AccountVO> accountVOs) {
+		this.accountVOs = accountVOs;
+	}
+
 }

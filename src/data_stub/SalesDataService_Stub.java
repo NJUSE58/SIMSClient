@@ -1,13 +1,13 @@
-package SIMSclient.src.data_stub;
+package data_stub;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.bussinesslogic.commoditybl.CommodityItem;
-import SIMSclient.src.vo.PromotionVO;
-import SIMSclient.src.vo.commodity.CommodityVO;
-import SIMSclient.src.vo.member.MemberVO;
-import SIMSclient.src.vo.sale.SalesAddVO;
-import SIMSclient.src.vo.sale.SalesVO;
+import bussinesslogic.commoditybl.CommodityItem;
+import vo.PromotionVO;
+import vo.commodity.CommodityVO;
+import vo.member.MemberVO;
+import vo.sale.SalesInputVO;
+import vo.sale.SalesVO;
 
 /**  
 * ÀàËµÃ÷   
@@ -51,12 +51,12 @@ public class SalesDataService_Stub {
 		return null;
 	}
 
-	public SalesVO submit(SalesAddVO Info) {
+	public SalesVO submit(SalesInputVO Info) {
 		System.out.println("Submit Succeed!\n");
 		return null;
 	}
 
-	public SalesVO save(SalesAddVO Info) {
+	public SalesVO save(SalesInputVO Info) {
 		System.out.println("Save Succeed!\n");
 		return null;
 	}

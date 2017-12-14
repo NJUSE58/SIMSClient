@@ -1,8 +1,8 @@
-package SIMSclient.src.bussinesslogic.utilitybl;
+package bussinesslogic.utilitybl;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.bussinesslogicservice.utilityblservice.UtilityBLService;
+import bussinesslogicservice.utilityblservice.UtilityBLService;
 
 public class UtilityBL implements UtilityBLService{
 

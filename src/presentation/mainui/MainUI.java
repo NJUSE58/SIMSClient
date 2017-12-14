@@ -3,7 +3,7 @@ package presentation.mainui;
 
 import java.rmi.RemoteException;
 
-
+import bussiness_stub.UserBLService_Stub;
 import bussinesslogic.userbl.UserController;
 import bussinesslogicservice.userblservice.UserBLService;
 import dataenum.UserRole;
@@ -58,10 +58,10 @@ public class MainUI extends Application{
 	}
 
     public void login() throws RemoteException{
-		    String id = username.toString();
-		    String passWord = password.toString();
+		    String id = username.getText();
+		    String passWord = password.getText();
 
-		    UserBLService service = new UserController();
+		    UserBLService service = new UserBLService_Stub();
 
 		    if(service.login(id,passWord)){
 

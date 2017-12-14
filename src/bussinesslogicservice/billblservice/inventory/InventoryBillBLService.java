@@ -1,6 +1,6 @@
-package SIMSclient.src.bussinesslogicservice.billblservice.inventory;
+package bussinesslogicservice.billblservice.inventory;
 
-import SIMSclient.src.bussinesslogicservice.billblservice.BillBLService;
+import bussinesslogicservice.billblservice.BillBLService;
 
 public interface InventoryBillBLService extends BillBLService{
 

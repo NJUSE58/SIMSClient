@@ -18,7 +18,7 @@ public interface UserBLService {
 	public ResultMessage update(UserVO vo) throws RemoteException;//修改
 
 	public ArrayList<UserVO> getUserList() throws RemoteException;  //改了一下接口，返回一个账户list
-	public boolean login(String userName, String passWord) throws RemoteException;
+	public boolean login(String id, String passWord) throws RemoteException;
 
 
 }

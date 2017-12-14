@@ -1,91 +1,89 @@
-package SIMSclient.src.po;
+package po;
+/**     
+*  
+* @author Lijie 
+* @date 2017年12月2日    
+*/
 
-
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-import SIMSclient.src.dataenum.BillState;
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.dataenum.Warehouse;
-import SIMSclient.src.po.commodity.CommodityItemPO;
+import dataenum.BillState;
+import dataenum.BillType;
+import dataenum.Warehouse;
+import po.commodity.CommodityItemPO;
 
-public class PurchasePO extends PersistObject{
+public class PurchasePO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private String MemberId;
-	private String MemberName; // 客户姓名
-	private Warehouse warehouse; // 仓库
-	private String operator; // 操作员
-	private ArrayList<CommodityItemPO> commodities; // 商品清单
-	private double sum; // 总额
-	private String remark; // 备注
-	private BillState state;
+	private static final long serialVersionUID = -63964493022423340L;
+	private String id;
+	private String memberID;
+	private String member;
+	private Warehouse warehouse;
+	private String operator;
+	private ArrayList<CommodityItemPO> commodities;
+	private String remark;
+	private double sum;
 	private BillType type;
+	private BillState state;
+	private String date;
 	
-	
-	
-	/** 
-	* @Description: TODO(这里用一句话描述这个方法的作用) 
-	* @param @param id
-	* @param @param memberId
-	* @param @param memberName
-	* @param @param warehouse
-	* @param @param operator
-	* @param @param commodities
-	* @param @param sum
-	* @param @param remark
-	* @param @param state
-	* @param @param type    设定文件 
-	* @return   返回类型 
-	* @throws 
-	*/
-	public PurchasePO(String id, String memberId, String memberName, Warehouse warehouse, String operator,
-			ArrayList<CommodityItemPO> commodities, double sum, String remark, BillState state, BillType type) {
-		super(id);
-		MemberId = memberId;
-		MemberName = memberName;
+	public PurchasePO(String id, String memberID, String member, Warehouse warehouse, String operator,
+			ArrayList<CommodityItemPO> commodities, String remark, double sum, BillType type, BillState state) {
+		this.id = id;
+		this.memberID = memberID;
+		this.member = member;
 		this.warehouse = warehouse;
 		this.operator = operator;
 		this.commodities = commodities;
-		this.sum = sum;
 		this.remark = remark;
-		this.state = state;
+		this.sum = sum;
 		this.type = type;
+		this.state = state;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		this.date = sdf.format(new Date());
 	}
-
-	public String getMemberId() {
-		return MemberId;
+	
+	public String getDate() {
+		return this.date;
 	}
-
-	public String getMemberName() {
-		return MemberName;
+	
+	public String getId() {
+		return this.id;
 	}
-
+	
+	public String getMemberID() {
+		return memberID;
+	}
+	public String getMember() {
+		return member;
+	}
 	public Warehouse getWarehouse() {
 		return warehouse;
 	}
-
 	public String getOperator() {
 		return operator;
 	}
-
-	public double getSum() {
-		return sum;
+	public ArrayList<CommodityItemPO> getCommodities() {
+		return commodities;
 	}
-
 	public String getRemark() {
 		return remark;
 	}
-
-	public BillState getState() {
-		return state;
+	public double getSum() {
+		return sum;
 	}
-
 	public BillType getType() {
 		return type;
 	}
+	public BillState getState() {
+		return state;
+	}
 	
-	public ArrayList<CommodityItemPO> getCommodities() {
-		return commodities;
+	public void setState(BillState state) {
+		this.state = state;
 	}
 	
 	

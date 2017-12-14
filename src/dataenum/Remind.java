@@ -1,4 +1,4 @@
-package SIMSclient.src.dataenum;
+package dataenum;
 
 public enum Remind {
 	   USER("用户"),MEMBER("客户"),ACCOUNT("账户"),

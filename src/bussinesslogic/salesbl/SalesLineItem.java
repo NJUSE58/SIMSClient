@@ -1,6 +1,9 @@
-package SIMSclient.src.bussinesslogic.salesbl;
+package bussinesslogic.salesbl;
 
 import java.rmi.RemoteException;
+
+import bussinesslogic.commoditybl.Info.CommodityInfo;
+import bussinesslogicservice.salesblservice.Sale_CommodityInfo;
 
 /*
  * 销售单的出货商品清单的细列项目
@@ -21,6 +24,7 @@ public class SalesLineItem {
 	private double price;
 	private double sum;  //总额
 	private String remark;  //备注
+	private Sale_CommodityInfo info;
 	
 	public SalesLineItem() {
 		
@@ -35,13 +39,17 @@ public class SalesLineItem {
 	 * @param sum
 	 * @param remark
 	 */
-	public SalesLineItem(String name, int number, double price, String remark) throws RemoteException {
+	public SalesLineItem(String id, int number, double price, String remark) throws RemoteException {
 		super();
-		this.name = name;
+		info = new CommodityInfo();
+		this.id = id;
+		this.name = info.getName(id);
+		this.model = info.getModel(id);
 		this.number = number;
 		this.price = price;
 		this.sum = number * price;
 		this.remark = remark;
+		info.setDelete(id, false);
 	}
 
 	public String getId() {

@@ -1,6 +1,6 @@
-package SIMSclient.src.bussinesslogic.billbl.inventory;
+package bussinesslogic.billbl.inventory;
 
-import SIMSclient.src.bussinesslogic.billbl.BillBL;
+import bussinesslogic.billbl.BillBL;
 
 public class InventoryBillBL extends BillBL{
 

@@ -1,9 +1,9 @@
-package SIMSclient.src.bussinesslogicservice.commodityblservice;
+package bussinesslogicservice.commodityblservice;
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.dataenum.findtype.FindCommodityType;
-import SIMSclient.src.vo.commodity.CommodityVO;
+import dataenum.ResultMessage;
+import dataenum.findtype.FindCommodityType;
+import vo.commodity.CommodityVO;
 
 public interface CommodityBLService {
 

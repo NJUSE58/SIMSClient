@@ -1,8 +1,8 @@
-package SIMSclient.src.data_stub;
+package data_stub;
 
 import java.rmi.RemoteException;
 
-import SIMSclient.src.po.UserPO;
+import po.UserPO;
 
 public class UserDataService_Stub {
 	public void insert(UserPO po) throws RemoteException{

@@ -1,67 +1,51 @@
-package SIMSclient.src.bussinesslogicservice.salesblservice;
+package bussinesslogicservice.salesblservice;
 
+import java.rmi.RemoteException;
 import java.util.*;
 
-import SIMSclient.src.vo.PromotionVO;
-import SIMSclient.src.vo.commodity.CommodityItemVO;
-import SIMSclient.src.vo.commodity.CommodityVO;
-import SIMSclient.src.vo.member.MemberVO;
-import SIMSclient.src.vo.sale.SalesAddVO;
-import SIMSclient.src.vo.sale.SalesVO;
+import dataenum.ResultMessage;
+import po.sales.SalesPO;
+import vo.PromotionVO;
+import vo.commodity.CommodityItemVO;
+import vo.commodity.CommodityVO;
+import vo.member.MemberVO;
+import vo.promotion.PromotionMemberVO;
+import vo.promotion.PromotionPricePacksVO;
+import vo.promotion.PromotionTotalVO;
+import vo.sale.SalesInputVO;
+import vo.sale.SalesVO;
 
+/**
+ * 
+* @ClassName: SalesBLService 
+* @Description: TODO(这里用一句话描述这个类的作用) 
+* @author lijie  
+*
+ */
 public interface SalesBLService {
 
-	/**
-	 * 获取销售单ID和销售退货单ID
-	 * @return ID
-	 */
 	public String getSaleID();
 	public String getBackSaleID();
 	
-	/**
-	 * 通过ID获取商品信息 
-	 * @param ID
-	 * @return 商品详细信息
-	 */
-	public CommodityVO getCommodityByID(int ID);
+	public SalesPO createSale();
 
-	/**
-	 * 增加商品
-	 * @param item
-	 */
 	public void addCommodities(CommodityItemVO item);
 	
-	/**
-	 * 查看促销商品
-	 * @param commodityID
-	 * @return 促销商品列表
-	 */
-	public ArrayList<PromotionVO> getCommodityPromotionListByID(int commodityID);
+	public ArrayList<PromotionPricePacksVO> showPricePacks();
+	
+	public void addPricePacks(String id);
+	
+	public ArrayList<PromotionTotalVO> FindTotalPromotion();
+	
+	public ArrayList<PromotionMemberVO> FindMemberPromotion();
+	
+	public double setPromotion(String id);
+	
+	public void addMembers(String id);
+	
+	public SalesVO submit(SalesInputVO Info);
+	public SalesVO save(SalesInputVO Info);
+	public ResultMessage updateDraft(SalesVO vo);
+	public ResultMessage submitDraft(String id);
 
-	/**
-	 * 获取客户信息
-	 * @return 客户信息
-	 */
-	public MemberVO getMember();
-
-	/**
-	 * 创建提交销售(退货)单  
-	 * (审批状态）
-	 * @param mode
-	 * @return 处理信息
-	 */
-	public SalesVO submit(SalesAddVO Info);
-
-	/**
-	 * 保存销售(退货)单 
-	 * (草稿状态)
-	 * @param Info
-	 * @return 处理信息
-	 */
-	public SalesVO save(SalesAddVO Info);
-
-	/**
-	 * 结束销售单的制定
-	 */
-	public void endSales();
 }

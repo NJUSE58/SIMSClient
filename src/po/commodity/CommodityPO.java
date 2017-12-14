@@ -1,10 +1,9 @@
-package SIMSclient.src.po.commodity;
+package po.commodity;
 
-import SIMSclient.src.po.ClassificationPO;
-import SIMSclient.src.po.PersistObject;
+import po.ClassificationPO;
+import po.PersistObject;
 
-public class CommodityPO extends PersistObject{
-
+public class CommodityPO extends PersistObject {
 
 	private static final long serialVersionUID = 1L;
 	private String name;

@@ -1,12 +1,11 @@
-package SIMSclient.src.dataservice.accountbilldataservice;
+package dataservice.accountbilldataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.dataservice.CommonDataService;
-import SIMSclient.src.po.makefinancialdoc.ReceiptBillPO;
-
+import dataenum.BillType;
+import po.FinancialBill.ReceiptBillPO;
 
 /**  
 * 类说明   
@@ -14,7 +13,7 @@ import SIMSclient.src.po.makefinancialdoc.ReceiptBillPO;
 * @author ****  
 * @date 2017年11月12日    
 */
-public interface ReceiptDataService extends CommonDataService<ReceiptBillPO>{
+public interface ReceiptDataService extends Remote{
 
 	public static final String NAME = "ReceiptBillData";
 	

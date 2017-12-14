@@ -1,7 +1,7 @@
-package SIMSclient.src.bussinesslogicservice.commodityblservice;
+package bussinesslogicservice.commodityblservice;
 
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.vo.commodity.ClassificationVO;
+import dataenum.ResultMessage;
+import vo.commodity.ClassificationVO;
 
 public interface ClassificationBLService {
 

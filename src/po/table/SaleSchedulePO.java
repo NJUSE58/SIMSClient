@@ -1,7 +1,7 @@
-package SIMSclient.src.po.table;
+package po.table;
 
-import SIMSclient.src.dataenum.Warehouse;
-import SIMSclient.src.po.PersistObject;
+import dataenum.Warehouse;
+import po.PersistObject;
 
 /**
  * 销售明细表 继承PersistObjct 将原本的属性用private修饰，增加serialVersionUID,去掉date, 因为date在父类PersistObject自动生成 

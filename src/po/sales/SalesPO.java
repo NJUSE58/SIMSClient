@@ -1,29 +1,35 @@
-package SIMSclient.src.po.sales;
+package po.sales;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-import SIMSclient.src.dataenum.BillState;
-import SIMSclient.src.dataenum.BillType;
-import SIMSclient.src.dataenum.Warehouse;
-import SIMSclient.src.po.PersistObject;
-import SIMSclient.src.po.commodity.CommodityItemPO;
+import dataenum.BillState;
+import dataenum.BillType;
+import dataenum.Warehouse;
+import po.PersistObject;
+import po.commodity.CommodityItemPO;
 
-public class SalesPO extends PersistObject {
 
-	private static final long serialVersionUID = 1L;
+public class SalesPO implements Serializable {
+
+	private static final long serialVersionUID = -2078643903406807067L;
+	private String id;
 	private String clientId;
 	private String clientName; // 客户姓名
 	private String operator; // 操作员
 	private String saleMan; // 业务员
 	private Warehouse warehouse; // 仓库
-	private double beforePrice; // 折让前价格
-	private double allowance; // 折让金额
-	private double voucher; // 代金券金额
-	private double afterPrice; // 折让后金额
+	private Double beforePrice; // 折让前价格
+	private Double allowance; // 折让金额
+	private Double voucher; // 代金券金额
+	private Double afterPrice; // 折让后金额
 	private String remark; // 备注
 	private ArrayList<CommodityItemPO> commodities; // 商品清单
 	private BillState state;
 	private BillType type;
+	private String date;
 
 	/**
 	 * @param id
@@ -42,9 +48,9 @@ public class SalesPO extends PersistObject {
 	 * @param type
 	 */
 	public SalesPO(String id, String clientId, String clientName, String saleMan, String operator, Warehouse warehouse,
-			ArrayList<CommodityItemPO> commodities, double beforePrice, double allowance, double voucher,
-			double afterPrice, String remark, BillType type) {
-		super(id);
+			ArrayList<CommodityItemPO> commodities, Double beforePrice, Double allowance, Double voucher,
+			Double afterPrice, String remark, BillType type, BillState state) {
+		this.id = id;
 		this.clientId = clientId;
 		this.clientName = clientName;
 		this.operator = operator;
@@ -56,10 +62,20 @@ public class SalesPO extends PersistObject {
 		this.afterPrice = afterPrice;
 		this.remark = remark;
 		this.commodities = commodities;
-		this.state = BillState.COMMITED;
+		this.state = state;
 		this.type = type;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		this.date = sdf.format(new Date());
 	}
-
+	
+	public String getDate() {
+		return this.date;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
 	public void setState(BillState state) {
 		this.state = state;
 	}

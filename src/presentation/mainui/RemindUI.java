@@ -34,8 +34,8 @@ public class RemindUI {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
-		    Parent root = FXMLLoader.load(getClass().getResource("Remind.fxml"));
-	        Scene scene = new Scene(root, 300, 200);
+		    Parent root = FXMLLoader.load(getClass().getResource("fxml/Remind.fxml"));
+	        Scene scene = new Scene(root);
 	        primaryStage.setScene(scene);
 	        primaryStage.setTitle("提示界面");
 	        primaryStage.show();

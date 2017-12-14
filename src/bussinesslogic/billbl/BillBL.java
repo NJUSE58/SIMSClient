@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogic.billbl;
+package bussinesslogic.billbl;
 
 public class BillBL {
 	

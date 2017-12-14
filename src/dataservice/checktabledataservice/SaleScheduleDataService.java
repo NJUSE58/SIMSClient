@@ -1,10 +1,10 @@
-package SIMSclient.src.dataservice.checktabledataservice;
+package dataservice.checktabledataservice;
 
-import SIMSclient.src.dataservice.CommonDataService;
-import SIMSclient.src.po.table.SaleSchedulePO;
+import java.rmi.Remote;
 
+import po.table.SaleSchedulePO;
 
-public interface SaleScheduleDataService extends CommonDataService<SaleSchedulePO>{
+public interface SaleScheduleDataService extends Remote{
 	public static final String NAME = "SaleScheduleData";
 	
 	public void viewReport(SaleSchedulePO saleSchedulePO);

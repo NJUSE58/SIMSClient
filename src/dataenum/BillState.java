@@ -1,4 +1,4 @@
-package SIMSclient.src.dataenum;
+package dataenum;
 
 public enum BillState {
 

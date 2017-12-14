@@ -1,8 +1,8 @@
-package SIMSclient.src.data_stub;
+package data_stub;
 
 import java.rmi.RemoteException;
 
-import SIMSclient.src.po.PromotionPO;
+import po.PromotionPO;
 
 public class PromotionDataService_Stub {
 	public void getbeforePrice(PromotionPO po) throws RemoteException{

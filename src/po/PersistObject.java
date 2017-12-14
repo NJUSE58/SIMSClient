@@ -1,22 +1,22 @@
-package SIMSclient.src.po;
+package po;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * 
-* @ClassName: PersistObject 
-* @Description: 持久化对象PO的公共父类
-* @author lijie
-* @date 2017年11月28日 上午8:21:54 
-*
- */
-public class PersistObject implements Serializable{
-
+/**     
+*  
+* @author Lijie 
+* @date 2017年12月2日    
+*/
+public class PersistObject {
 	private static final long serialVersionUID = 1L;
 	protected String date;
 	protected String id;
+	
+	
+	public PersistObject() {
+		
+	}
 	
 	/*
 	 *自动生成单据编号和日期 

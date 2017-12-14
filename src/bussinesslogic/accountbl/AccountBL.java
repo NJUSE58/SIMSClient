@@ -1,26 +1,27 @@
-package SIMSclient.src.bussinesslogic.accountbl;
+package bussinesslogic.accountbl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import SIMSclient.src.bussinesslogicservice.accountblservice.AccountBLService;
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.dataenum.findtype.FindAccountType;
-import SIMSclient.src.dataservice.accountdataservice.AccountDataService;
-import SIMSclient.src.po.AccountPO;
-import SIMSclient.src.po.PersistObject;
-import SIMSclient.src.vo.AccountVO;
-import SIMSclient.src.vo.makefinancialdoc.FinancialDocVO;
-import SIMSclient.src.vo.makefinancialdoc.PaymentBillVO;
+import bussinesslogicservice.accountblservice.AccountBLService;
+import dataenum.BillType;
+import dataenum.ResultMessage;
+import dataenum.findtype.FindAccountType;
+import dataservice.accountdataservice.AccountDataService;
+import po.AccountPO;
+import vo.AccountVO;
+import vo.FinancialBill.AccountListVO;
+import vo.FinancialBill.FinancialDocVO;
+import vo.FinancialBill.PaymentBillVO;
+import vo.FinancialBill.ReceiptBillVO;
 
 /**
  * 
  * @author 王灿灿
- * @version 2017-12-2
- *
+ * @version 2017-12-10
  */
 public class AccountBL implements AccountBLService{
-	
+
 	private static AccountBL accountBL=new AccountBL();
 	ResultMessage resultMessage = null;
 	
@@ -33,7 +34,6 @@ public class AccountBL implements AccountBLService{
 	FindAccountType findAccountType;
 	AccountVO accountVO;
 	AccountPO accountPO; 
-	PersistObject po;
 	
 
 	
@@ -50,7 +50,7 @@ public class AccountBL implements AccountBLService{
 		ArrayList<AccountVO> accountVOs=new ArrayList<>();
 		ArrayList<AccountPO> accountPOs=new ArrayList<>();
 		try {
-			accountPOs=accountDataService.find(message,findType);
+			accountPOs=accountDataService.findAccount(message,findType);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}		
@@ -69,7 +69,7 @@ public class AccountBL implements AccountBLService{
 	@Override
 	public ResultMessage newBuild(String id,String name,String money) {
 		
-		accountPO=new AccountPO("","","");
+		accountPO=new AccountPO("","",0.0);
 		
 		double m = Double.valueOf(money);
 		
@@ -84,13 +84,15 @@ public class AccountBL implements AccountBLService{
 		}
 		if(judge){
 			
-			accountPO.setID(id);
+			accountPO.setId(id);
 			accountPO.setName(name);
-			accountPO.setMoney(money);
-			
-			po=accountPO;
-			
-			resultMessage=accountDataService.newBuild(po);
+			accountPO.setMoney(m);
+					
+			try {
+				resultMessage=accountDataService.insertAccount(accountPO);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 			
 		}
 		return resultMessage.SUCCESS;
@@ -120,11 +122,16 @@ public class AccountBL implements AccountBLService{
 		
 		ArrayList<AccountPO> accountPOs=new ArrayList<>();
 		ArrayList<AccountVO> accountVOs=new ArrayList<>();
-		accountPOs=accountDataService.getAccountList();
+		try {
+			accountPOs=accountDataService.showAccount();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		if(!accountPOs.isEmpty()){
 			for (int i = 0; i < accountVOs.size(); i++) {
+				accountVO.setId(accountPOs.get(i).getId());
 				accountVO.setName(accountPOs.get(i).getName());
-				accountVO.setMoney(accountPOs.get(i).getMoney());
+				accountVO.setMoney(Double.toString(accountPOs.get(i).getMoney()));
 				accountVOs.add(accountVO);
 			}
 		}
@@ -133,14 +140,38 @@ public class AccountBL implements AccountBLService{
 
 /**
  * 
+ * 单据入账，修改银行账户金额并修改客户的应收应付数据
  * @author 王灿灿
  * @param financialDocVO	是收款单付款单的父类对象，拥有银行账户名列表、转账金额列表等属性
  *  
  * 
  */
 	@Override
-	public ResultMessage enterItem(FinancialDocVO financialDocVO) {
+	public ResultMessage enterItem(FinancialDocVO financialDocVO,BillType billType) {
 		//waiting for coding
+		
+		ArrayList<String> accountID=new ArrayList<>();
+		ArrayList<Double> accountMoney=new ArrayList<>();
+		String memberID="";
+		
+		if(billType.equals(billType.SKD)){
+			ReceiptBillVO receiptBillVO = (ReceiptBillVO)financialDocVO;
+			ArrayList<AccountListVO> accountVOs = receiptBillVO.getAccountListVOs();
+			for (int i = 0; i < accountVOs.size(); i++) {
+				accountID.add(accountVOs.get(i).getAccountID());
+				accountMoney.add(Double.valueOf(accountVOs.get(i).getMoney()));
+			}
+			memberID=receiptBillVO.getCustomerID();
+		}
+		if(billType.equals(billType.XJFYD)){
+			PaymentBillVO paymentBillVO=(PaymentBillVO)financialDocVO;
+			accountID.add(paymentBillVO.getAccountID());
+			accountMoney.add(Double.valueOf(paymentBillVO.getTotal()));
+			memberID=paymentBillVO.getCustomerID();
+		}
+		
+		
+		
 		return resultMessage.SUCCESS;
 		
 	}
@@ -150,13 +181,16 @@ public class AccountBL implements AccountBLService{
  */
 	@Override
 	public ResultMessage saveChange(ArrayList<AccountVO> accountVOs) {
-			accountPO=new AccountPO("", "", "");
-			ArrayList<PersistObject> persistObjects = new ArrayList<>();	
+			accountPO=new AccountPO("", "",0.0);
 		for (AccountVO accountVO : accountVOs) {
 			accountPO=accountTransition.VOtoPO(accountVO);
-			persistObjects.add((PersistObject)accountPO);
+			try {
+				accountDataService.updateAccount(accountPO);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 		}
-		return accountDataService.saveChange(persistObjects);
+		return resultMessage.SUCCESS;
 	}
 
 }

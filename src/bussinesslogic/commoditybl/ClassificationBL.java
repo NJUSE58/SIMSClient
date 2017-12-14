@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogic.commoditybl;
+package bussinesslogic.commoditybl;
 
 public class ClassificationBL {
 

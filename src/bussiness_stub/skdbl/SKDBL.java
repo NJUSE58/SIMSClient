@@ -1,4 +1,4 @@
-package SIMSclient.src.bussiness_stub.skdbl;
+package bussiness_stub.skdbl;
 
 public class SKDBL {
 	

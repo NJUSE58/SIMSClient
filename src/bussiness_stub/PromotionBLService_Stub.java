@@ -1,6 +1,6 @@
-package SIMSclient.src.bussiness_stub;
+package bussiness_stub;
 
-import SIMSclient.src.vo.PromotionVO;
+import vo.PromotionVO;
 
 public class PromotionBLService_Stub {
 	public void getBillID(PromotionVO vo){

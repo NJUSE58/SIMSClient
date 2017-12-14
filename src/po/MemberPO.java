@@ -1,12 +1,15 @@
-package SIMSclient.src.po;
+package po;
 
-import SIMSclient.src.dataenum.MemberCategory;
-import SIMSclient.src.dataenum.MemberLevel;
-import SIMSclient.src.dataenum.UserRole;
+import java.io.Serializable;
 
-public class MemberPO extends PersistObject {
+import dataenum.MemberCategory;
+import dataenum.MemberLevel;
+import dataenum.UserRole;
 
-	private static final long serialVersionUID = 1L;
+public class MemberPO implements Serializable {
+
+	private static final long serialVersionUID = -5527693894433345344L;
+	private String id;
 	private MemberCategory category;
 	private MemberLevel level;
 	private String name;
@@ -22,7 +25,7 @@ public class MemberPO extends PersistObject {
 	
 	public MemberPO(String id, MemberCategory category, MemberLevel level, String name, String phone, String adress,
 			String post, String email, double rereceivableLimit, String saleMan) {
-		super(id);
+		this.id = id;
 		this.category = category;
 		this.level = level;
 		this.name = name;
@@ -34,6 +37,10 @@ public class MemberPO extends PersistObject {
 		this.saleMan = saleMan;
 	}
 
+	public String getId() {
+		return id;
+	}
+	
 	public MemberCategory getCategory() {
 		return category;
 	}
@@ -132,29 +139,10 @@ public class MemberPO extends PersistObject {
 		this.saleMan = saleMan;
 	}
 
-	/**
-	 * 客户是否重复
-	 */
-	@Override
-	public boolean equals(Object object) {
-		if (this == object)
-			return true;
-		if (!super.equals(object))
-			return false;
-		if (getClass() != object.getClass())
-			return false;
-		MemberPO other = (MemberPO) object;
-		if (this.name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!this.name.equals(other.name))
-			return false;
-		return true;
-	}
-
 	@Override
 	public String toString() {
-		return id + "|" + category.value + "|" + level.value + "|" + name + "|" + phone + "|" + address + "|" + post
-				+ "|" + email + "|" + receivableLimit + receivable + "|" + payable + "|" + "|" + saleMan;
+		return id + "," + category.value + "," + level.value + "," + name + "," + phone + "," + address + "," + post + "," + email
+				+ "," + receivableLimit + receivable + "," + payable + "," + "," + saleMan;
 	}
+
 }

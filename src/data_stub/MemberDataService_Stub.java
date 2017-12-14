@@ -1,9 +1,9 @@
-package SIMSclient.src.data_stub;
+package data_stub;
 
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.vo.member.MemberVO;
+import dataenum.ResultMessage;
+import vo.member.MemberVO;
 
 /**  
 * ภเหตร๗   

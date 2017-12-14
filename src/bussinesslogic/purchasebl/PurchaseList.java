@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogic.purchasebl;
+package bussinesslogic.purchasebl;
 /**     
 *  
 * @author Lijie 

@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogicservice.utilityblservice;
+package bussinesslogicservice.utilityblservice;
 
 import java.util.*;
 

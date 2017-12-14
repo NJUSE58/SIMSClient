@@ -1,14 +1,14 @@
-package SIMSclient.src.dataservice.commoditydataservice;
+package dataservice.commoditydataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import SIMSclient.src.dataenum.findtype.FindCommodityType;
-import SIMSclient.src.dataservice.CommonDataService;
-import SIMSclient.src.po.commodity.CommodityPO;
+import dataenum.findtype.FindCommodityType;
+import po.commodity.CommodityPO;
 
-public interface CommodityDataService extends CommonDataService<CommodityPO>{
-	public static final String NAME = "CommodityData";
+public interface CommodityDataService extends Remote {
+	
 	
 	public String getID(String fatherID) throws RemoteException;
 

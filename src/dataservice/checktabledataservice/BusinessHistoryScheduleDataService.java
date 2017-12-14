@@ -1,11 +1,15 @@
-package SIMSclient.src.dataservice.checktabledataservice;
+package dataservice.checktabledataservice;
 
-import SIMSclient.src.dataservice.CommonDataService;
-import SIMSclient.src.po.PersistObject;
-import SIMSclient.src.po.makefinancialdoc.FinancialDocPO;
-import SIMSclient.src.po.table.BusinessHistorySchedulePO;
+import java.rmi.Remote;
 
-public interface BusinessHistoryScheduleDataService extends CommonDataService<BusinessHistorySchedulePO>{
+import po.PersistObject;
+import po.FinancialBill.FinancialDocPO;
+import po.table.BusinessHistorySchedulePO;
+
+/**
+ * 查看经营历程表
+ */
+public interface BusinessHistoryScheduleDataService extends Remote {
 	public static final String NAME = "BusinessHistoryScheduleData";
 	
 	public FinancialDocPO viewReport(BusinessHistorySchedulePO businessHistorySchedulePO);

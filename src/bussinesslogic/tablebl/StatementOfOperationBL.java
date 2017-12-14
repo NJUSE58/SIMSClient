@@ -1,4 +1,4 @@
-package SIMSclient.src.bussinesslogic.tablebl;
+package bussinesslogic.tablebl;
 
 public class StatementOfOperationBL {
 

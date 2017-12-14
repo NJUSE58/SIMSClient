@@ -1,6 +1,6 @@
-package SIMSclient.src.bussinesslogicservice.checktableblservice;
+package bussinesslogicservice.checktableblservice;
 
-import SIMSclient.src.vo.table.SaleScheduleVO;
+import vo.table.SaleScheduleVO;
 
 public interface saleScheduleBLService {
 	

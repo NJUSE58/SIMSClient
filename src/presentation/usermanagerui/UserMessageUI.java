@@ -18,7 +18,7 @@ public class UserMessageUI extends UserManagerUI implements Initializable{
 	TableColumn<String,String> messageList;
 
 	public void start() throws Exception {
-		   changeStage("UserMessageUI","UserMessageUI.fxml");
+
 	}
 
 	@Override

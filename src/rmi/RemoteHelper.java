@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 
 import dataservice.accountbilldataservice.PaymentBillDataService;
 import dataservice.accountbilldataservice.ReceiptDataService;
-import dataservice.accountbookdataservice.SetUpAccountDataService;
+import dataservice.accountbookdataservice.AccountBookDataService;
 import dataservice.accountdataservice.AccountDataService;
 import dataservice.billdataservice.BillDataService;
 import dataservice.checktabledataservice.BusinessHistoryScheduleDataService;
@@ -95,11 +95,11 @@ public class RemoteHelper {
 		return (SalesDataService)remote;
 	}
 
-	public SetUpAccountDataService getSetUpAccountDataService(){
-		return (SetUpAccountDataService)remote;
+	public AccountBookDataService getSetUpAccountDataService(){
+		return (AccountBookDataService)remote;
 	}
 
-	public UserDataService getuserDataService(){
+	public UserDataService getUserDataService(){
 		return (UserDataService)remote;
 	}
 }

@@ -77,20 +77,4 @@ public class StageController {
         return true;
     }
 
-
-    /**
-     * 在Map中删除Stage加载对象
-     *
-     * @param name 需要删除的fxml窗口文件名
-     * @return 是否删除成功
-     */
-    public boolean unloadStage(String name) {
-        if (stages.remove(name) == null) {
-            System.out.println("窗口不存在，请检查名称");
-            return false;
-        } else {
-            System.out.println("窗口移除成功");
-            return true;
-        }
-    }
 }

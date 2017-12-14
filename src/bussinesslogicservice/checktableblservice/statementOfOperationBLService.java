@@ -1,6 +1,6 @@
-package SIMSclient.src.bussinesslogicservice.checktableblservice;
+package bussinesslogicservice.checktableblservice;
 
-import SIMSclient.src.vo.table.StatementOfOperationVO;
+import vo.table.StatementOfOperationVO;
 
 public interface statementOfOperationBLService {
 	

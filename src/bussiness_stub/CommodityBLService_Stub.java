@@ -1,35 +1,60 @@
-package SIMSclient.src.bussiness_stub;
+package bussiness_stub;
 
-import SIMSclient.src.vo.ViewObject;
-import SIMSclient.src.vo.commodity.CommodityVO;
+import java.util.ArrayList;
 
-public class CommodityBLService_Stub {
+import bussinesslogicservice.commodityblservice.CommodityBLService;
+import dataenum.ResultMessage;
+import dataenum.findtype.FindCommodityType;
+import vo.commodity.ClassificationVO;
+import vo.commodity.CommodityVO;
 
-	public void insert(CommodityVO vo){
-		System.out.println("Insert Success.");
+public class CommodityBLService_Stub implements CommodityBLService{
+
+	@Override
+	public ResultMessage insert(CommodityVO vo) {
+		// TODO Auto-generated method stub
+		return ResultMessage.SUCCESS;
 	}
-	public void delete(CommodityVO vo){
-		System.out.println("Delete Success.");
+
+	@Override
+	public void delelte(CommodityVO vo) {
+		// TODO Auto-generated method stub
+
 	}
-	public void update(CommodityVO vo){
-		System.out.println("Update Success.");
+
+	@Override
+	public ResultMessage update(CommodityVO vo) {
+		// TODO Auto-generated method stub
+		return ResultMessage.SUCCESS;
 	}
-	public void find(CommodityVO vo){
-		System.out.println("Find Success.");
+
+	@Override
+	public ArrayList<CommodityVO> find(String info, FindCommodityType properties) {
+
+		return null;
 	}
-	public void check(){
-		System.out.println("Check Success.");
+
+	@Override
+	public ArrayList<CommodityVO> getCommodityList() {
+		ArrayList<CommodityVO> list = new ArrayList<>();
+		ClassificationVO classification = new ClassificationVO("00001","°×µÆÀà",null,null,null);
+        CommodityVO commodity1 = new CommodityVO("00001","°×³ãµÆ","L",classification,20,25,45,500);
+        CommodityVO commodity2 = new CommodityVO("00002","Ì¨µÆ","L",classification,30,30,50,500);
+        list.add(commodity1);
+        list.add(commodity2);
+		return list;
 	}
-	public void stock(){
-		System.out.println("Stock Success.");
+
+	@Override
+	public void check() {
+		// TODO Auto-generated method stub
+
 	}
-	public void giftInventoryReceiptsMaking(ViewObject vo){
-		System.out.println("Making Success.");
+
+	@Override
+	public void stock() {
+		// TODO Auto-generated method stub
+
 	}
-	public void lossAndRevenueInventoryReceiptsMaking(ViewObject vo){
-		System.out.println("Making Success.");
-	}
-	public void warningInventoryReceiptsMaking(ViewObject vo){
-		System.out.println("Making Success.");
-	}
+
 }

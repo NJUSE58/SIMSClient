@@ -1,9 +1,12 @@
-package SIMSclient.src.dataservice.purchasedataservice;
+package dataservice.purchasedataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
-import SIMSclient.src.dataservice.CommonDataService;
-import SIMSclient.src.po.PurchasePO;
+import dataenum.ResultMessage;
+import dataenum.findtype.FindSalesType;
+import po.PurchasePO;
 
 /**  
 * 类说明   
@@ -11,11 +14,17 @@ import SIMSclient.src.po.PurchasePO;
 * @author ****  
 * @date 2017年10月22日    
 */
-public interface PurchaseDataService extends CommonDataService<PurchasePO> {
+public interface PurchaseDataService extends Remote {
 
 	public static final String NAME = "PurchaseData";
 	
-	public String getPurchaseID() throws RemoteException;
+	public ResultMessage insertPurchase(PurchasePO po) throws RemoteException;
 	
-	public String getPurchaseBackID() throws RemoteException;
+	public ResultMessage deletePurchase(String ID) throws RemoteException;
+	
+	public ResultMessage updatePurchase(PurchasePO po) throws RemoteException;
+	
+	public ArrayList<PurchasePO> findPurchase(String keyword, FindSalesType type) throws RemoteException;
+	
+	public ArrayList<PurchasePO> showPurchase() throws RemoteException;
 }

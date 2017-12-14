@@ -8,11 +8,14 @@ package vo;
  */
 public class ViewObject {
 
-	public String id;
-	public String date;
-
-	@Override
-	public String toString() {
-		return "[ID=" + this.id + "]";
+	protected String id;
+	protected String date;
+	public String getId() {
+		return id;
 	}
+	public String getDate() {
+		return date;
+	}
+	
+	
 }

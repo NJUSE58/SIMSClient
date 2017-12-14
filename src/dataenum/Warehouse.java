@@ -1,4 +1,4 @@
-package SIMSclient.src.dataenum;
+package dataenum;
 
 public enum Warehouse {
 
@@ -10,5 +10,9 @@ public enum Warehouse {
 	Warehouse(String value) {
 		this.value = value;
 	}
-	
+
+	public static Warehouse getWarehouse(String value){
+		return value == "²Ö¿â1"?WAREHOUSE1:WAREHOUSE2;
+	}
+
 }

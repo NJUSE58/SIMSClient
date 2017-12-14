@@ -1,18 +1,22 @@
-package SIMSclient.src.bussinesslogicservice.accountbillblservice;
+package bussinesslogicservice.accountbillblservice;
 
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.vo.makefinancialdoc.PaymentBillVO;
+import dataenum.ResultMessage;
+import vo.FinancialBill.ReceiptBillVO;
 
 public interface ReceiptBillBLService {
 	
-	public ResultMessage newBuild(PaymentBillVO skdVO);
+	public ResultMessage save(ReceiptBillVO receiptBillVO);//如果没有，就新建，否则修改
 	
-	public ResultMessage modify(PaymentBillVO skdVO);
+	public ResultMessage delete(ReceiptBillVO receiptBillVO);
 	
-	public ResultMessage delete(PaymentBillVO skdVO);
+	public ReceiptBillVO find();
 	
-	public PaymentBillVO find(String message);
+	public ResultMessage getAccountList();
 	
-	public ResultMessage commit(PaymentBillVO skdVO);
+	public ResultMessage getCustomerList();
+	
+	public ResultMessage judgeLegal(String money);
+	
+	public ResultMessage commit(ReceiptBillVO receiptBillVO);
 	
 }

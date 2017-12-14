@@ -1,8 +1,8 @@
-package SIMSclient.src.bussinesslogic.accountbookbl;
+package bussinesslogic.accountbookbl;
 
-import SIMSclient.src.bussinesslogicservice.accountbookblservice.AccountBookBLService;
-import SIMSclient.src.dataenum.ResultMessage;
-import SIMSclient.src.vo.AccountBookVO;
+import bussinesslogicservice.accountbookblservice.AccountBookBLService;
+import dataenum.ResultMessage;
+import vo.AccountBookVO;
 
 public class AccountBookBL implements AccountBookBLService{
 
