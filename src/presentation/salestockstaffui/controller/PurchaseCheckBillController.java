@@ -96,11 +96,11 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
 		tableID.setCellValueFactory(
                 new PropertyValueFactory<PurchaseVO,String>("id"));
 		tableType.setCellValueFactory(
-                new PropertyValueFactory<PurchaseVO,String>("type"));
+                new PropertyValueFactory<PurchaseVO,String>("typeString"));
 		tableMember.setCellValueFactory(
                 new PropertyValueFactory<PurchaseVO,String>("supplier"));
 		tableWarehouse.setCellValueFactory(
-                new PropertyValueFactory<PurchaseVO,String>("warehouse"));
+                new PropertyValueFactory<PurchaseVO,String>("warehouseString"));
 		tableSum.setCellValueFactory(
                 new PropertyValueFactory<PurchaseVO,Double>("sum"));
 		tableOperator.setCellValueFactory(
@@ -108,7 +108,7 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
 		tableNote.setCellValueFactory(
                 new PropertyValueFactory<PurchaseVO,String>("remark"));
 		tableState.setCellValueFactory(
-                new PropertyValueFactory<PurchaseVO,String>("state"));
+                new PropertyValueFactory<PurchaseVO,String>("stateString"));
 		checkInit();
 		submitInit();
 		redoInit();
@@ -132,7 +132,7 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
                         delBtn.setOnMouseClicked((me) -> {
                         	PurchaseVO clickedItem = this.getTableView().getItems().get(this.getIndex());
                             commodityList.clear();
-                            commodityList.addAll(clickedItem.commodities);
+                            commodityList.addAll(clickedItem.getCommodities());
                             commodity.setItems(commodityList);
 
                         });
@@ -156,7 +156,7 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
                     this.setText(null);
                     this.setGraphic(null);
               for(int i=0;i< this.getTableView().getItems().size();i++){
-                   BillState clickedState = this.getTableView().getItems().get(i).state;
+                   BillState clickedState = this.getTableView().getItems().get(i).getState();
                     if (!empty&&clickedState == BillState.DRAFT) {
                         Button delBtn = new Button("提交");
                         this.setGraphic(delBtn);
@@ -185,16 +185,15 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
                     this.setText(null);
                     this.setGraphic(null);
                     for(int i=0;i< this.getTableView().getItems().size();i++){
-                   BillState clickedState = this.getTableView().getItems().get(i).state;
+                   BillState clickedState = this.getTableView().getItems().get(i).getState();
                     if (!empty&&(clickedState == BillState.DRAFT||clickedState == BillState.FAIL)) {
                         Button delBtn = new Button("重做");
                         this.setGraphic(delBtn);
                         delBtn.setOnMouseClicked((me) -> {
                         	PurchaseVO clickedItem = this.getTableView().getItems().get(this.getIndex());
                             try {
-								changeStage("PurchaseMakeBillUI",user,clickedItem.type,clickedItem,null);
+								changeStage("PurchaseMakeBillUI",user,clickedItem.getType(),clickedItem,null);
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
                         });
@@ -220,7 +219,7 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
                     this.setText(null);
                     this.setGraphic(null);
                     for(int i=0;i< this.getTableView().getItems().size();i++){
-                    BillState clickedState = this.getTableView().getItems().get(i).state;
+                    BillState clickedState = this.getTableView().getItems().get(i).getState();
                     if (!empty&&(clickedState == BillState.DRAFT||clickedState == BillState.FAIL)) {
                         Button delBtn = new Button("删除");
                         this.setGraphic(delBtn);
@@ -246,7 +245,7 @@ public class PurchaseCheckBillController extends SaleStockStaffController implem
 		commodityModel.setCellValueFactory(
                 new PropertyValueFactory<CommodityItemVO,String>("model"));
 		commodityNumber.setCellValueFactory(
-                new PropertyValueFactory<CommodityItemVO,Integer>("numder"));
+                new PropertyValueFactory<CommodityItemVO,Integer>("number"));
 		commodityPrice.setCellValueFactory(
                 new PropertyValueFactory<CommodityItemVO,Double>("price"));
 		commodityMoney.setCellValueFactory(

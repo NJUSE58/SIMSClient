@@ -90,18 +90,16 @@
             </ImageView>
          </graphic>
       </Button>
-      <ChoiceBox fx:id="receiptChoice" layoutX="184.0" layoutY="64.0" prefWidth="150.0" />
-      <Button layoutX="334.0" layoutY="64.0" mnemonicParsing="false" onAction="#chooseReceipt" prefHeight="23.0" prefWidth="78.0" text="选择单据" />
-      <Label fx:id="idLabel" layoutX="184.0" layoutY="131.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
-      <Label layoutX="187.0" layoutY="116.0" text="单据编号" />
-      <Label layoutX="187.0" layoutY="191.0" text="供应商" />
-      <ChoiceBox fx:id="warehouseChoice" layoutX="184.0" layoutY="300.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="memberChoice" layoutX="184.0" layoutY="206.0" prefWidth="150.0" />
-      <Label layoutX="187.0" layoutY="283.0" text="仓库" />
-      <Label layoutX="187.0" layoutY="373.0" text="总额总计" />
-      <Label fx:id="sumLabel" layoutX="184.0" layoutY="388.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
-      <Label layoutX="187.0" layoutY="454.0" text="操作员" />
-      <Label fx:id="operatorLabel" layoutX="184.0" layoutY="469.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
+      <Label fx:id="idLabel" layoutX="183.0" layoutY="109.0" prefHeight="23.0" prefWidth="210.0" style="-fx-background-color: #DDDDDD;" />
+      <Label layoutX="186.0" layoutY="94.0" text="单据编号" />
+      <Label layoutX="186.0" layoutY="149.0" text="供应商" />
+      <ChoiceBox fx:id="warehouseChoice" layoutX="183.0" layoutY="226.0" prefHeight="23.0" prefWidth="210.0" />
+      <ChoiceBox fx:id="memberChoice" layoutX="183.0" layoutY="164.0" prefHeight="23.0" prefWidth="210.0" />
+      <Label layoutX="186.0" layoutY="209.0" text="仓库" />
+      <Label layoutX="183.0" layoutY="270.0" text="总额总计" />
+      <Label fx:id="sumLabel" layoutX="180.0" layoutY="285.0" prefHeight="23.0" prefWidth="210.0" style="-fx-background-color: #DDDDDD;" />
+      <Label layoutX="183.0" layoutY="330.0" text="操作员" />
+      <Label fx:id="operatorLabel" layoutX="180.0" layoutY="345.0" prefHeight="23.0" prefWidth="210.0" style="-fx-background-color: #DDDDDD;" />
       <TableView fx:id="table" layoutX="420.0" layoutY="65.0" prefHeight="252.0" prefWidth="599.0">
         <columns>
           <TableColumn fx:id="tableID" prefWidth="75.0" text="商品编号" />
@@ -114,26 +112,26 @@
             <TableColumn fx:id="tableDelete" prefWidth="75.0" text="是否删除" />
         </columns>
       </TableView>
-      <Label layoutX="435.0" layoutY="330.0" text="商品编号" />
-      <Label fx:id="commodityIDLabel" layoutX="432.0" layoutY="345.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
-      <Label layoutX="607.0" layoutY="330.0" text="名称" />
-      <ChoiceBox fx:id="nameChoice" layoutX="607.0" layoutY="345.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="modelChoice" layoutX="785.0" layoutY="345.0" prefWidth="150.0" />
-      <Label layoutX="785.0" layoutY="330.0" text="型号" />
-      <Label layoutX="435.0" layoutY="386.0" text="数量" />
-      <TextField fx:id="numberField" layoutX="432.0" layoutY="401.0" prefHeight="23.0" prefWidth="150.0" />
-      <Label layoutX="607.0" layoutY="382.0" text="单价" />
-      <TextField fx:id="priceField" layoutX="607.0" layoutY="397.0" prefHeight="23.0" prefWidth="150.0" />
-      <Label layoutX="788.0" layoutY="381.0" text="总额" />
-      <Label fx:id="moneyLabel" layoutX="785.0" layoutY="396.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
-      <Label layoutX="435.0" layoutY="473.0" text="单据备注" />
-      <TextArea fx:id="noteArea" layoutX="432.0" layoutY="492.0" prefHeight="44.0" prefWidth="500.0" />
-      <Button layoutX="821.0" layoutY="443.0" mnemonicParsing="false" onAction="#insert" prefHeight="23.0" prefWidth="114.0" text="增加商品" />
+      <Label layoutX="423.0" layoutY="330.0" text="商品编号" />
+      <Label fx:id="commodityIDLabel" layoutX="420.0" layoutY="345.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
+      <Label layoutX="645.0" layoutY="332.0" text="名称" />
+      <ChoiceBox fx:id="nameChoice" layoutX="645.0" layoutY="347.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="modelChoice" layoutX="873.0" layoutY="347.0" prefWidth="150.0" />
+      <Label layoutX="873.0" layoutY="332.0" text="型号" />
+      <Label layoutX="423.0" layoutY="386.0" text="数量" />
+      <TextField fx:id="numberField" layoutX="420.0" layoutY="404.0" prefHeight="23.0" prefWidth="150.0" />
+      <Label layoutX="645.0" layoutY="391.0" text="单价" />
+      <TextField fx:id="priceField" layoutX="645.0" layoutY="406.0" prefHeight="23.0" prefWidth="150.0" />
+      <Label layoutX="873.0" layoutY="391.0" text="总额" />
+      <Label fx:id="moneyLabel" layoutX="873.0" layoutY="406.0" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #DDDDDD;" />
+      <Label layoutX="186.0" layoutY="386.0" text="单据备注" />
+      <TextArea fx:id="noteArea" layoutX="183.0" layoutY="404.0" prefHeight="124.0" prefWidth="210.0" />
+      <Button layoutX="892.0" layoutY="450.0" mnemonicParsing="false" onAction="#insert" prefHeight="76.0" prefWidth="127.0" text="增加商品" />
       <Button layoutX="910.0" layoutY="550.0" mnemonicParsing="false" onAction="#checkBefore" prefHeight="35.0" prefWidth="121.0" text="查看过往单据" />
       <Button layoutX="372.0" layoutY="546.0" mnemonicParsing="false" onAction="#save" prefHeight="44.0" prefWidth="127.0" text="保    存" />
       <Button layoutX="619.0" layoutY="546.0" mnemonicParsing="false" onAction="#submit" prefHeight="44.0" prefWidth="127.0" text="提    交" />
-      <Label layoutX="435.0" layoutY="424.0" text="备注" />
-      <TextField fx:id="noteField" layoutX="435.0" layoutY="443.0" prefHeight="23.0" prefWidth="372.0" />
-      <Label fx:id="typeLabel" layoutX="184.0" layoutY="87.0" prefHeight="23.0" prefWidth="150.0" />
+      <Label layoutX="423.0" layoutY="436.0" text="备注" />
+      <Label fx:id="typeLabel" layoutX="184.0" layoutY="54.0" prefHeight="23.0" prefWidth="150.0" />
+      <TextArea fx:id="remarkArea" layoutX="420.0" layoutY="450.0" prefHeight="76.0" prefWidth="458.0" />
    </children>
 </AnchorPane>

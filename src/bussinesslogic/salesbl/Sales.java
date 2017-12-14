@@ -36,6 +36,7 @@ import dataservice.salesdataservice.SalesDataService;
 public class Sales {
 
 	private BillType type;
+	private BillState state;
 	private String ID;
 	private ArrayList<String> IDList;  
 	private ArrayList<Integer> NumberList;
@@ -74,7 +75,7 @@ public class Sales {
 		return new SalesPO(ID, list.getMemberID(), memberinfo.getMember(list.getMemberID()),
 				memberinfo.getSaleMan(list.getMemberID()), 
 				userinfo.getOperator(), list.getWareHouse(), list.getCommodities(), list.getBeforePrice(), 
-				list.getAllowance(), list.getVoucher(), list.getAfterPrice(), list.getRemark(), type);
+				list.getAllowance(), list.getVoucher(), list.getAfterPrice(), list.getRemark(), type, state);
 	}
 	             
 	

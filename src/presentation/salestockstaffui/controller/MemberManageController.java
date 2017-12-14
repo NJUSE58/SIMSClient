@@ -196,8 +196,8 @@ public class MemberManageController extends SaleStockStaffController implements 
 		public void manageInit(){
 			tableID.setCellValueFactory(
 	                new PropertyValueFactory<MemberVO,String>("ID"));
-			tableCategory.setCellValueFactory(
-	                new PropertyValueFactory<MemberVO,String>("categoryString"));
+		    tableCategory.setCellValueFactory(
+	                new PropertyValueFactory<MemberVO,String>("categoryStr"));
 			tableLevel.setCellValueFactory(
 	                new PropertyValueFactory<MemberVO,String>("levelString"));
 	        tableName.setCellValueFactory(

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.purchaseblservice.PurchaseBLService;
 import dataenum.ResultMessage;
+import po.PurchasePO;
 import vo.PromotionVO;
 import vo.commodity.CommodityItemVO;
 import vo.commodity.CommodityVO;
@@ -22,18 +23,21 @@ public class PurchaseController implements PurchaseBLService{
 	}
 
 	@Override
-	public String getPurBackID() {
+	public String getPurChaseBackID() {
 		return null;
 	}
 
 	@Override
-	public CommodityVO getCommodityByID(int ID) {
+	public PurchasePO createPurcashe() {
 		return null;
 	}
 
 	@Override
-	public ArrayList<PromotionVO> getCommodityPromotionListByID(int commodityID) {
-		return null;
+	public void addCommodities(CommodityItemVO item) {
+	}
+
+	@Override
+	public void addMembers(String id) {
 	}
 
 	@Override
@@ -47,12 +51,67 @@ public class PurchaseController implements PurchaseBLService{
 	}
 
 	@Override
-	public void endSales() {
+	public ResultMessage updateDraft(PurchaseVO vo) {
+		return null;
+	}
+
+	@Override
+	public ResultMessage submitDraft(PurchaseVO vo) {
+		return null;
 	}
 
 	@Override
 	public ResultMessage isLegal(CommodityItemVO vo) {
-		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchase() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseBack() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseCommited() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseBackCommited() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseSuccess() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseBackSuccess() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseDraft() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseBackDraft() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseFail() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<PurchaseVO> showPurchaseBackFail() {
 		return null;
 	}
 

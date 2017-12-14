@@ -32,8 +32,9 @@ public class SalesTransition {
 		double afterPrice = vo.afterPrice;
 		String remark = vo.remark; // ±¸×¢
 		BillType type = vo.type;
+		BillState state = vo.state;
 		return new SalesPO(id, retailerId, retailer, saleMan, operator, warehouse, commodity, beforePrice,
-				allowance, voucher, afterPrice, remark, type);
+				allowance, voucher, afterPrice, remark, type, state);
 	}
 
 	public static SalesVO POtoVO(SalesPO po) {

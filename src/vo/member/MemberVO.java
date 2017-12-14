@@ -5,7 +5,7 @@ import dataenum.MemberLevel;
 
 public class MemberVO {
 	private String ID;
-	private String categoryString;
+	private String categoryStr;
 	private MemberCategory category; // 客户分类：进货商和销售商
 	private String levelString;
 	private MemberLevel level; // 客户级别：五级，一级普通用户，五级VIP客户
@@ -35,6 +35,8 @@ public class MemberVO {
 	public MemberVO(String ID, MemberCategory category, MemberLevel level, String name, String cellNumber,
 			String address, String post, String email, String receivableLimit, String receivable, String payable,
 			String saleMan) {
+		categoryStr = category.value;
+		levelString = level.value;
 		this.ID = ID;
 		this.category = category;
 		this.level = level;
@@ -47,8 +49,7 @@ public class MemberVO {
 		this.receivable = receivable;
 		this.payable = payable;
 		this.saleMan = saleMan;
-		categoryString = category.value;
-		levelString = level.value;
+		
 	}
 
 	public String getID() {
@@ -108,8 +109,8 @@ public class MemberVO {
 		return saleMan;
 	}
 
-	public String categoryString(){
-		return categoryString;
+	public String getCategoryStr(){
+		return category.value;
 	}
 
 	public String getLevelString(){

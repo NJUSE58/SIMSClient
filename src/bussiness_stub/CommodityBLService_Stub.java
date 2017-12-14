@@ -30,8 +30,13 @@ public class CommodityBLService_Stub implements CommodityBLService{
 
 	@Override
 	public ArrayList<CommodityVO> find(String info, FindCommodityType properties) {
-
-		return null;
+		ArrayList<CommodityVO> list = new ArrayList<>();
+		ClassificationVO classification = new ClassificationVO("00001","°×µÆÀà",null,null,null);
+        CommodityVO commodity1 = new CommodityVO("00001","°×³ãµÆ","L",classification,20,25,45,500);
+        CommodityVO commodity2 = new CommodityVO("00002","Ì¨µÆ","S",classification,30,30,50,500);
+        list.add(commodity1);
+        list.add(commodity2);
+		return list;
 	}
 
 	@Override
